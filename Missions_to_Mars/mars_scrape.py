@@ -24,6 +24,8 @@ def scrape():
 
     scrapedDict['news_title'] = news_title
     scrapedDict['news_p'] = news_p
+    driver.quit()
+
 # JPL Mars Space Images
     # import image url
     image_url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
@@ -39,6 +41,7 @@ def scrape():
     featured_image_url = "https://www.jpl.nasa.gov" + images[0].img['src']
 
     scrapedDict['featured_image_url'] = featured_image_url
+    browser.quit()
 # Mars Fact
     # import mars fact url
     mar_facts_url = "https://space-facts.com/mars/"
@@ -48,6 +51,7 @@ def scrape():
     html_result = tables[0].to_html()
 
     scrapedDict['html_string'] = html_result
+
 # Mars Hemispheres
     # load Mars Hemispheres URL
     mar_hemi_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -76,7 +80,7 @@ def scrape():
             images_urls.append(img)
     scrapedDict['images_urls'] = images_urls
 
-    print(scrapedDict)
+    driver.quit()
+    browser.quit()
+    #print(scrapedDict)
     return scrapedDict
-
-scrape()
